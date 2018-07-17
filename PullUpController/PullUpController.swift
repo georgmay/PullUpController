@@ -172,7 +172,7 @@ open class PullUpController: UIViewController {
         NSLayoutConstraint.activate([topConstraint, leftConstraint, widthConstraint, heightConstraint].compactMap { $0 })
     }
     
-    private var currentStickyPointIndex: Int {
+    public var currentStickyPointIndex: Int {
         let stickyPointTreshold = (self.parent?.view.frame.height ?? 0) - (topConstraint?.constant ?? 0)
         let stickyPointsLessCurrentPosition = pullUpControllerAllStickyPoints.map { abs($0 - stickyPointTreshold) }
         guard let minStickyPointDifference = stickyPointsLessCurrentPosition.min() else { return 0 }
