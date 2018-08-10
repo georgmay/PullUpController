@@ -113,6 +113,8 @@ open class PullUpController: UIViewController {
         guard isPortrait else { return }
         topConstraint?.constant = (parent?.view.frame.height ?? 0) - visiblePoint
         
+        willMoveToStickyPoint?(visiblePoint)
+        
         if animated {
             UIView.animate(
                 withDuration: 0.3,
